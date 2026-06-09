@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio de Igor Reis — Desenvolvedor em Formação | SENAI" />
+  <title>Igor Reis | Portfólio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <style>
+    /*==================================================
+      ESTILOS PREMIUM INTEGRADOS (ACCORDIONS E FORMULÁRIO)
+    ==================================================*/
+    
+    :root {
+      --primary-color: #0066cc;
+      --primary-hover: #0052a3;
+      --text-main: #333333;
+      --text-muted: #555555;
+      --bg-white: #ffffff;
+      --border-color: #e0e0e0;
+    }
+
+    /* Estilização Moderna dos Accordions */
+    details {
+      background: var(--bg-white);
+      border-radius: 8px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      overflow: hidden;
+    }
+
+    details:hover {
+      border-color: var(--primary-color);
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.08);
+    }
+
+    details[open] {
+      border-color: var(--primary-color);
+      box-shadow: 0 4px 16px rgba(0, 102, 204, 0.12);
+    }
+
+    summary {
+      padding: 18px 24px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1rem;
+      color: var(--text-main);
+      user-select: none;
+      background: linear-gradient(to right, #ffffff, #fafafa);
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: '\276F';
+      font-size: 0.9rem;
+      color: var(--primary-color);
+      transition: transform 0.3s ease;
+    }
+
+    details[open] summary::after {
+      transform: rotate(90deg);
+    }
+
+    .accordion-content {
+      padding: 20px 24px 24px 24px;
+      border-top: 1px solid #f0f0f0;
+      background: #ffffff;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .accordion-content p {
+      margin: 0 0 12px 0;
+    }
+
+    .accordion-content .tags span {
+      background: #e6f0fa;
+      color: var(--primary-color);
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      display: inline-block;
+      margin: 4px;
+    }
+
+    /* Formulário de Contato e Questionário */
+    .contact-form {
+      background: var(--bg-white);
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      margin: 35px auto 0 auto;
+      text-align: left;
+      max-width: 600px;
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--text-main);
+      font-size: 0.95rem;
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      background-color: #fcfcfc;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+    }
+
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      background-color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+    }
+
+    .range-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .range-container input[type="range"] {
+      flex: 1;
+      accent-color: var(--primary-color);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .range-value {
+      font-weight: 700;
+      color: var(--primary-color);
+      width: 50px;
+      text-align: right;
+      font-size: 1.05rem;
+    }
+
+    /* Seção de Depoimentos */
+    .testimonial-card {
+      background: #f8fafd;
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary-color);
+      text-align: center;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .testimonial-card h4 {
+      margin-top: 15px;
+      margin-bottom: 2px;
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container nav">
+      <a href="#inicio" class="logo">Igor <span>Reis</span></a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="nav-links">
+        <a href="#inicio" class="active">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="hero-label">Olá, eu sou</p>
+        <h1>Igor Reis</h1>
+        <p class="hero-sub">Estudante de Desenvolvimento de Sistemas · Front-End</p>
+        <p class="hero-desc">
+          Busco oportunidade como estagiário ou desenvolvedor júnior para aplicar meus
+          conhecimentos e crescer na área de tecnologia.
+        </p>
+        <div class="hero-btns">
+          <a href="#projetos" class="btn btn-fill">Ver projetos</a>
+          <a href="#contato" class="btn btn-line">Contato</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="fotoperfil.png" alt="Igor Reis" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre + Formação -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <h2 class="title">Sobre mim & Formação</h2>
+      
+      <details open>
+        <summary><span>Resumo Profissional</span></summary>
+        <div class="accordion-content">
+          <p>
+            Estudante do 2º ano do Técnico em Desenvolvimento de Sistemas pelo SENAI, com formação
+            em programação web, banco de dados e desenvolvimento mobile. Possuo conhecimentos em
+            Front-End e interesse em criar soluções digitais eficientes. Sou proativo, dedicado e
+            tenho facilidade para aprender e trabalhar em equipe.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary><span>Objetivo de Carreira</span></summary>
+        <div class="accordion-content">
+          <p>
+            Ingressar como Estagiário ou Desenvolvedor Júnior, aplicando meus conhecimentos técnicos
+            e contribuindo para soluções inovadoras em uma empresa que valorize aprendizado e
+            colaboração.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary><span><i class="ti ti-school" style="color: var(--primary-color); margin-right: 5px;"></i> Formação Acadêmica — SENAI</span></summary>
+        <div class="accordion-content">
+          <p class="status" style="color: var(--primary-color); font-weight: 700; font-size: 1.1rem; margin-bottom: 12px;">
+            Técnico em Desenvolvimento de Sistemas · Cursando o 2º ano
+          </p>
+          <div class="tags">
+            <span>Front-End</span><span>Programação Web</span><span>Banco de Dados</span>
+            <span>Mobile</span><span>Git</span><span>Boas Práticas</span>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- Habilidades -->
+  <section class="section section-gray" id="habilidades">
+    <div class="container">
+      <h2 class="title">Habilidades</h2>
+      
+      <details open>
+        <summary><span>Hard Skills (Competências Técnicas)</span></summary>
+        <div class="accordion-content">
+          <div class="skills-wrap" style="padding: 0; background: transparent; box-shadow: none;">
+            <div class="skill-bars">
+              <div class="skill-item" data-percent="100">
+                <div class="skill-top"><span>HTML</span><span></span></div>
+                <div class="skill-track"><div class="skill-fill" style="background-color: var(--primary-color);"></div></div>
+              </div>
+              <div class="skill-item" data-percent="100">
+                <div class="skill-top"><span>CSS</span><span></span></div>
+                <div class="skill-track"><div class="skill-fill" style="background-color: var(--primary-color);"></div></div>
+              </div>
+              <div class="skill-item" data-percent="100">
+                <div class="skill-top"><span>JavaScript</span><span></span></div>
+                <div class="skill-track"><div class="skill-fill" style="background-color: var(--primary-color);"></div></div>
+              </div>
+              <div class="skill-item" data-percent="100">
+                <div class="skill-top"><span>Bootstrap</span><span></span></div>
+                <div class="skill-track"><div class="skill-fill" style="background-color: var(--primary-color);"></div></div>
+              </div>
+              <div class="skill-item" data-percent="100">
+                <div class="skill-top"><span>React</span><span></span></div>
+                <div class="skill-track"><div class="skill-fill" style="background-color: var(--primary-color);"></div></div>
+              </div>
+              <div class="skill-item" data-percent="100">
+                <div class="skill-top"><span>Python</span><span></span></div>
+                <div class="skill-track"><div class="skill-fill" style="background-color: var(--primary-color);"></div></div>
+              </div>
+              <div class="skill-item" data-percent="100">
+                <div class="skill-top"><span>Git / GitHub</span><span></span></div>
+                <div class="skill-track"><div class="skill-fill" style="background-color: var(--primary-color);"></div></div>
+              </div>
+              <div class="skill-item" data-percent="100">
+                <div class="skill-top"><span>MySQL</span><span></span></div>
+                <div class="skill-track"><div class="skill-fill" style="background-color: var(--primary-color);"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary><span>Soft Skills (Competências Comportamentais)</span></summary>
+        <div class="accordion-content">
+          <div class="soft-tags" style="margin-top: 0; padding: 0;">
+            <div class="tags">
+              <span>Comunicação</span><span>Trabalho em equipe</span><span>Proatividade</span>
+              <span>Organização</span><span>Resolução de problemas</span><span>Aprendizado rápido</span>
+            </div>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- Projetos — Swiper -->
+  <section class="section" id="projetos">
+    <div class="container">
+      <h2 class="title">Projetos</h2>
+      <p class="subtitle">Trabalhos desenvolvidos durante o curso técnico</p>
+
+      <div class="swiper projects-swiper">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <article class="project-slide">
+              <div class="project-img">
+                <img src="images/projetos/vitrine-carrossel.png" alt="Vitrine Carrossel React" loading="lazy" />
+              </div>
+              <div class="project-info">
+                <h3>Vitrine Carrossel</h3>
+                <p>Desenvolvido em React</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="project-slide">
+              <div class="project-img">
+                <img src="images/projetos/perfil-usuario.png" alt="Perfil do Usuário" loading="lazy" />
+              </div>
+              <div class="project-info">
+                <h3>Perfil do Usuário</h3>
+                <p>Upload e edição de foto com JavaScript</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="project-slide">
+              <div class="project-img">
+                <img src="images/projetos/painel-mensagens.png" alt="Painel de Mensagens" loading="lazy" />
+              </div>
+              <div class="project-info">
+                <h3>Painel de Mensagens</h3>
+                <p>Manipulação do DOM com JavaScript</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="project-slide">
+              <div class="project-img">
+                <img src="images/projetos/calculadora.png" alt="Calculadora" loading="lazy" />
+              </div>
+              <div class="project-info">
+                <h3>Calculadora</h3>
+                <p>Interface responsiva com HTML, CSS e JS</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="project-slide">
+              <div class="project-img">
+                <img src="images/projetos/engix-login.png" alt="Engix Login" loading="lazy" />
+              </div>
+              <div class="project-info">
+                <h3>Engix — Login</h3>
+                <p>Tela de autenticação · UI Mobile</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="project-slide">
+              <div class="project-img">
+                <img src="images/projetos/engix-dashboard.png" alt="Engix Dashboard" loading="lazy" />
+              </div>
+              <div class="project-info">
+                <h3>Engix — Dashboard</h3>
+                <p>Painel de gestão de manutenção</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="project-slide">
+              <div class="project-img">
+                <img src="images/projetos/julskin-loja.png" alt="Julskin Loja" loading="lazy" />
+              </div>
+              <div class="project-info">
+                <h3>Julskin — Loja</h3>
+                <p>Interface de e-commerce · HTML e CSS</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="project-slide">
+              <div class="project-img">
+                <img src="images/projetos/loja-produtos.png" alt="Loja de Produtos" loading="lazy" />
+              </div>
+              <div class="project-info">
+                <h3>Loja de Produtos</h3>
+                <p>Vitrine de cosméticos · Front-End</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="project-slide">
+              <div class="project-img">
+                <img src="images/projetos/relogio-digital.png" alt="Relógio Digital" loading="lazy" />
+              </div>
+              <div class="project-info">
+                <h3>Relógio Digital</h3>
+                <p>Hora e data em tempo real com JavaScript</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="project-slide">
+              <div class="project-img">
+                <img src="images/projetos/diagrama-uml.png" alt="Diagrama UML" loading="lazy" />
+              </div>
+              <div class="project-info">
+                <h3>Diagrama de Casos de Uso</h3>
+                <p>Modelagem UML · Análise de sistemas</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="project-slide">
+              <div class="project-img">
+                <img src="images/projetos/nova-conta.png" alt="Nova Conta — Cadastro" loading="lazy" />
+              </div>
+              <div class="project-info">
+                <h3>Nova Conta</h3>
+                <p>Tela de cadastro com seleção de perfil · Java/Spring</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="project-slide">
+              <div class="project-img">
+                <img src="images/projetos/painel-admin.png" alt="Painel Administrativo" loading="lazy" />
+              </div>
+              <div class="project-info">
+                <h3>Painel Administrativo</h3>
+                <p>CRUD de produtos · Back-end integrado</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="project-slide">
+              <div class="project-img">
+                <img src="images/projetos/lista-moedas.png" alt="Lista de Moedas" loading="lazy" />
+              </div>
+              <div class="project-info">
+                <h3>Lista de Moedas</h3>
+                <p>API REST · Listagem de dados em Java</p>
+              </div>
+            </article>
+          </div>
+
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cursos -->
+  <section class="section section-gray" id="cursos">
+    <div class="container">
+      <h2 class="title">Cursos Concluídos</h2>
+      <p class="subtitle">Certificações e formações complementares — SENAI</p>
+      
+      <details>
+        <summary><span>Visualizar Lista Completa de Certificados</span></summary>
+        <div class="accordion-content">
+          <div class="cursos-grid" style="display: grid; gap: 15px;">
+
+            <div class="curso-card">
+              <div class="curso-icon"><i class="ti ti-table"></i></div>
+              <div class="curso-body">
+                <h4>Excel Básico</h4>
+                <span class="curso-tag">SENAI</span>
+              </div>
+            </div>
+
+            <div class="curso-card">
+              <div class="curso-icon"><i class="ti ti-shield-check"></i></div>
+              <div class="curso-body">
+                <h4>Segurança do Trabalho</h4>
+                <span class="curso-tag">SENAI</span>
+              </div>
+            </div>
+
+            <div class="curso-card">
+              <div class="curso-icon"><i class="ti ti-users"></i></div>
+              <div class="curso-body">
+                <h4>Competência Transversal</h4>
+                <span class="curso-tag">SENAI</span>
+              </div>
+            </div>
+
+            <div class="curso-card">
+              <div class="curso-icon"><i class="ti ti-lock"></i></div>
+              <div class="curso-body">
+                <h4>Segurança Cibernética</h4>
+                <span class="curso-tag">SENAI</span>
+              </div>
+            </div>
+
+            <div class="curso-card">
+              <div class="curso-icon"><i class="ti ti-brain"></i></div>
+              <div class="curso-body">
+                <h4>Fluência — Fundamentos da Inteligência Artificial</h4>
+                <span class="curso-tag">SENAI</span>
+              </div>
+            </div>
+
+            <div class="curso-card">
+              <div class="curso-icon"><i class="ti ti-leaf"></i></div>
+              <div class="curso-body">
+                <h4>Desvendando a Descarbonização</h4>
+                <span class="curso-tag">SENAI</span>
+              </div>
+            </div>
+
+            <div class="curso-card">
+              <div class="curso-icon"><i class="ti ti-scale"></i></div>
+              <div class="curso-body">
+                <h4>Ética na Inteligência Artificial</h4>
+                <span class="curso-tag">SENAI</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  
+  <!-- Contato + Questionário Interativo -->
+  <section class="section section-contact" id="contato">
+    <div class="container contact-box">
+      <h2 class="title title-light">Contato</h2>
+      <p>Aberto a oportunidades de estágio e vagas júnior. Vamos conversar?</p>
+      
+      <div class="social-links">
+        <!-- Substitua o SEU_USUARIO pelo seu nome de usuário real do GitHub -->
+        <a href="https://github.com/SEU_USUARIO" target="_blank" rel="noopener" class="social-btn">
+          <i class="ti ti-brand-github"></i> GitHub
+        </a>
+        <!-- Substitua o SEU_PERFIL pelo seu nome de usuário real do LinkedIn -->
+        <a href="https://linkedin.com/in/SEU_PERFIL" target="_blank" rel="noopener" class="social-btn">
+          <i class="ti ti-brand-linkedin"></i> LinkedIn
+        </a>
+        <!-- Botão Direto de E-mail usando o Mailto -->
+        <a href="mailto:igor.s.reis8@aluno.senai.br" class="social-btn">
+          <i class="ti ti-mail"></i> E-mail
+        </a>
+      </div>
+
+      <!-- Formulário Integrado com Envio Inteligente por E-mail -->
+      <form class="contact-form" action="mailto:igor.s.reis8@aluno.senai.br" method="POST" enctype="text/plain">
+        <h3 style="margin-top: 0; text-align: center; margin-bottom: 24px; color: var(--text-main); font-weight: 700;">Formulário de Recrutamento</h3>
+        
+        <div class="form-group">
+          <label for="nome">Seu Nome / Nome da Empresa:</label>
+          <input type="text" id="nome" name="Nome_Empresa" placeholder="Ex: Maria Silva - Empresa Tech" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail para Retorno:</label>
+          <input type="email" id="email" name="Email_Contato" placeholder="Ex: recrutador@empresa.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="area">Qual área você necessita no momento?</label>
+          <select id="area" name="Area_Interesse" required>
+            <option value="" disabled selected>Selecione uma opção</option>
+            <option value="frontend">Desenvolvimento Front-End (HTML/CSS/JS/React)</option>
+            <option value="backend">Desenvolvimento Back-End (Python / Java)</option>
+            <option value="fullstack">Estagiário Full-Stack</option>
+            <option value="banco_dados">Modelagem e Banco de Dados (MySQL)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="nota">Que nota você dá para o meu Portfólio?</label>
+          <div class="range-container">
+            <input type="range" id="nota" name="Nota_Portfolio" min="1" max="10" value="10" oninput="this.nextElementSibling.innerText = this.value + '/10'" />
+            <span class="range-value">10/10</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Detalhes da Vaga ou Mensagem:</label>
+          <textarea id="mensagem" name="Mensagem" rows="4" placeholder="Fale um pouco sobre a vaga, projeto ou deixe seu feedback..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-fill" style="width: 100%; display: block; border: none; font-size: 1rem; cursor: pointer; padding: 14px; background-color: var(--primary-color);">
+          Enviar Respostas por E-mail
+        </button>
+      </form>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 Igor Reis — Desenvolvedor em Formação</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Carrossel do Projetos
+      if(document.querySelector('.projects-swiper')){
+        new Swiper('.projects-swiper', {
+          loop: true,
+          pagination: { el: '.swiper-pagination', clickable: true },
+          navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+          breakpoints: {
+            640: { slidesPerView: 1, spaceBetween: 20 },
+            768: { slidesPerView: 2, spaceBetween: 30 },
+            1024: { slidesPerView: 3, spaceBetween: 30 }
+          }
+        });
+      }
+
+      // Carrossel das Recomendações
+      if(document.querySelector('.testimonials-swiper')){
+        new Swiper('.testimonials-swiper', {
+          loop: true,
+          autoplay: { delay: 4500, disableOnInteraction: false },
+          pagination: { el: '.swiper-pagination', clickable: true }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
